@@ -1,0 +1,25 @@
+{
+  "name": "upm-gui",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/upm-pass/upm-gui.git"
+  },
+  "keywords": [
+    "password_manager"
+  ],
+  "author": "senpai-10",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/upm-pass/upm-gui/issues"
+  },
+  "homepage": "https://github.com/upm-pass/upm-gui#readme",
+  "dependencies": {
+    "node-gtk": "^0.8.1"
+  }
+}
