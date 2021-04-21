@@ -10,7 +10,12 @@ function HandleLogin() {
     if (!input) {
         alert("no input")
     } else {
-        console.log(input)
+        if (input == decrypt(config.get("MasterKey"))) {
+            console.log("logged in")
+            window.location = "index.html"
+        } else {
+            alert("wrong password")
+        }
     }
 }
 
