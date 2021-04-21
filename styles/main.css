@@ -1,5 +1,10 @@
+@font-face {
+    font-family: JetBrainsMono-Regular;
+    src:url("./fonts/JetBrainsMono-Regular.ttf");
+}
+
 * {
     color: white;
     background-color: #181818;
+    font-family: "JetBrainsMono-Regular";
 }
-
