@@ -18,5 +18,3 @@ function HandleLogin() {
         }
     }
 }
-
-// console.log(decrypt(config.get("MasterKey")))
