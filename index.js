@@ -13,7 +13,7 @@ function createWindow () {
     }
   })
 
-  mainWindow.loadFile('login.html')
+  mainWindow.loadFile(path.join(__dirname, 'src/ui/login.html'))
 
 }
 
