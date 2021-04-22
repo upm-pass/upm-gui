@@ -1,0 +1,66 @@
+#search-dir {
+    margin-left: 35%;
+}
+
+#search {
+    outline: none;
+    border: 1px solid #545454;
+    padding: 5px 4px;
+    border-radius: 3px;
+}
+
+#search:hover {
+    border: 1px solid #757575;
+}
+
+#search:focus {
+    border: 1px solid #3b73db;
+}
+
+#search-icon {
+    background-color: none;
+    cursor: pointer;
+}
+
+#menu-buttons {
+    margin-top: 10px;
+    margin-left: 35%;
+}
+
+#remove-all {
+    margin-left: 25px;
+    outline: none;
+    border: none;
+    padding: 5px 4px;
+    border-radius: 3px;
+    cursor: pointer;
+    background: #c41818;
+    border-radius: 3px;
+    padding: 8px 5px;
+}
+
+#remove-all:hover {
+    background: rgb(204, 43, 43);
+}
+
+#add {
+    margin-left: 15px;
+    outline: none;
+    border: none;
+    padding: 5px 4px;
+    border-radius: 3px;
+    cursor: pointer;
+    background:#19a736;
+    border-radius: 3px;
+    padding: 8px 5px;
+}
+
+#add:hover {
+    background: #26b643;
+}
+
+#br {
+    width: 800px;
+    height: 1px;
+    background-color: #545454;
+}
