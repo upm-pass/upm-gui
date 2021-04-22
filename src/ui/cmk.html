@@ -6,10 +6,17 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
     <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
     <link rel="stylesheet" href="styles/main.css">
-    <title>create master key</title>
+    <link rel="stylesheet" href="styles/cmk.css">
+    <title>welcome</title>
   </head>
   <body>
-    <h1>hii</h1>
+    <div id=border class="center">
+        <span id="welcome-span">welcome</span>
+        <span id="masterkey-span">create master key</span>
+        <input id="masterkey-input" type="password" placeholder="masterkey password">
+        <input id="masterkey-input-retype" type="password" placeholder="ReType masterkey password">
+        <button id="cmk-submit">create</button>
+    </div>
     <script src="../cmk.js"></script>
   </body>
 </html>
