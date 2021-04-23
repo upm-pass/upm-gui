@@ -60,7 +60,62 @@
 }
 
 #br {
-    width: 800px;
+    width: 790px;
     height: 1px;
     background-color: #545454;
 }
+
+.psw-elem {
+    margin-left: 50px;
+}
+
+.text-span {
+    margin-left: 60px;
+}
+
+#show {
+    margin-left: 90px;
+    outline: none;
+    border: none;
+    padding: 5px 4px;
+    border-radius: 3px;
+    cursor: pointer;
+    background:#1067b9;
+    border-radius: 3px;
+    padding: 8px 5px;
+}
+
+#show:hover {
+    background:#1e78cc;
+}
+
+#change {
+    outline: none;
+    border: none;
+    padding: 5px 4px;
+    border-radius: 3px;
+    cursor: pointer;
+    background:#d49918;
+    border-radius: 3px;
+    padding: 8px 5px;
+}
+
+#change:hover {
+    background: #e6a926;
+}
+
+#remove {
+    outline: none;
+    border: none;
+    padding: 5px 4px;
+    border-radius: 3px;
+    cursor: pointer;
+    background: #c41818;
+    border-radius: 3px;
+    padding: 8px 5px;
+}
+
+#remove:hover {
+    background: #d61e1e;
+}
+
