@@ -59,8 +59,14 @@
     background: #26b643;
 }
 
-#br {
-    width: 790px;
+#main-br {
+    width: 700px;
+    height: 1px;
+    background-color: #545454;
+}
+
+.br {
+    width: 400px;
     height: 1px;
     background-color: #545454;
 }
