@@ -7,9 +7,9 @@ document.getElementById("remove-all").addEventListener("click", RemoveAll);
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
-  
 
-function RemoveAll () {
+function RemoveAll () 
+{
     const oldValue = document.getElementById('remove-all').innerHTML
     config.unset("passwords")
     sleep(100).then(() => {
@@ -19,6 +19,8 @@ function RemoveAll () {
         document.getElementById('remove-all').innerHTML = oldValue
     })
 }
+
+function Reload () {}
 
 function LoadPasswords () 
 {
@@ -30,18 +32,38 @@ function LoadPasswords ()
     // console.log(data);
 
     for (var key in data) {
-        // if (data.hasOwnProperty(key)) {
-            console.log(key + " -> " + data[key])
-            console.log(decrypt(config.get(`passwords.${key}.password`)))
-        // }
-    }
-
-    // for (var i = 0; i < count; i++) {
-    //     var item = data[i];
-    //     Element = ``
+        let domain = key
+        let username = config.get(`passwords.${key}.username`) != undefined ? decrypt(config.get(`passwords.${key}.username`)) : "empty"
+        let email = config.get(`passwords.${key}.email`) != undefined ? decrypt(config.get(`passwords.${key}.email`)) : "empty"
+        let password = config.get(`passwords.${key}.password`) != undefined ? decrypt(config.get(`passwords.${key}.password`)) : "empty"
         
-    //     container.innerHTML += Element;
-    // }
+        element = `
+            <br>
+            <div class="psw-elem">
+                <div>
+                    <span style="padding-left: 2px;">${domain}</span>
+                    <span class="text-span">${username}</span>
+                    <span class="text-span">${email}</span>
+                </div>
+                <br>
+                <span id="password">*****</span>
+                <button id="show">show</button>
+                <button id="change">change</button>
+                <button onclick="remove('${domain}')" id="remove">remove</button>
+            </div>
+            <br>
+            <div class="br"></div>
+        `
+
+        container.innerHTML += element;
+    }
+}
+
+function remove(key)
+{
+    console.log(`removing ${key}`);
+    // reload page
+    Reload()
 }
 
 LoadPasswords()
