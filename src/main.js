@@ -8,6 +8,10 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+function Reload () {
+    location.reload()
+}
+
 function RemoveAll () 
 {
     const oldValue = document.getElementById('remove-all').innerHTML
@@ -17,10 +21,9 @@ function RemoveAll ()
     })
     sleep(1000).then(() => {
         document.getElementById('remove-all').innerHTML = oldValue
-    })
+    }) 
+    Reload()
 }
-
-function Reload () {}
 
 function LoadPasswords () 
 {
@@ -47,7 +50,7 @@ function LoadPasswords ()
                 </div>
                 <br>
                 <span id="password">*****</span>
-                <button id="show">show</button>
+                <button onclick="show('${domain}')" id="show">show</button>
                 <button id="change">change</button>
                 <button onclick="remove('${domain}')" id="remove">remove</button>
             </div>
@@ -59,11 +62,17 @@ function LoadPasswords ()
     }
 }
 
-function remove(key)
+function show (key) 
 {
-    console.log(`removing ${key}`);
-    // reload page
+    alert(decrypt(config.get(`passwords.${key}.password`)))
+}
+
+function remove (key)
+{
+    config.unset(`passwords.${key}`)
     Reload()
 }
+
+
 
 LoadPasswords()
