@@ -1,3 +1,7 @@
+br {
+    user-select: none;
+}
+
 #search-dir {
     margin-left: 35%;
 }
