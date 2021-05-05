@@ -62,9 +62,41 @@ function LoadPasswords ()
     }
 }
 
+function add ()
+{
+    element = `
+        <div id="prompt">
+            <input id="add-domain" type="text" placeholder="domain">
+            <input id="add-username" type="text" placeholder="username">
+            <input id="add-email" type="text" placeholder="email">
+            <input id="add-password" type="text" placeholder="password">
+            
+            <div id="add-buttons">
+                <button id="add-done">done</button>
+                <button onclick="cancel()" id="add-cancel">cancel</button>
+            </div>
+        </div>
+    `
+    document.getElementById("main").classList.add("blurred")
+    document.body.innerHTML += element
+}
+
+function add_done () 
+{}
+
+function cancel () 
+{
+    document.getElementById("main").classList.remove("blurred")
+}
+
 function show (key) 
 {
     alert(decrypt(config.get(`passwords.${key}.password`)))
+}
+
+function change (key) 
+{
+
 }
 
 function remove (key)
@@ -74,5 +106,5 @@ function remove (key)
 }
 
 
-
+add()
 LoadPasswords()
