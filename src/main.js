@@ -63,7 +63,7 @@ function LoadPasswords ()
                 <br>
                 <span id="password">*****</span>
                 <button onclick="show('${domain}')" id="show">show</button>
-                <button id="change">change</button>
+                <button onclick="change('${domain}')" id="change">change</button>
                 <button onclick="remove('${domain}')" id="remove">remove</button>
             </div>
             <br>
@@ -85,7 +85,7 @@ function add ()
             <input id="add-password" type="text" placeholder="password">
             
             <div id="buttons">
-                <button onclick="add_done()" id="done">done</button>
+                <button onclick="done('add', null)" id="done">done</button>
                 <button onclick="cancel()" id="cancel">cancel</button>
             </div>
         </div>
@@ -94,18 +94,55 @@ function add ()
     document.body.innerHTML += element
 }
 
-function add_done ()
-{
-    let domain = document.getElementById("add-domain").value
-    let username = document.getElementById("add-username").value
-    let email = document.getElementById("add-email").value
-    let password = document.getElementById("add-password").value
-    let save = true
 
-    if (!domain) {
-        alert(`error: no domain name`)
-        save = false
-    }
+
+function cancel () 
+{
+    document.getElementById("main").classList.remove("blurred")
+    document.getElementById("prompt").remove()
+}
+
+function show (key) 
+{
+    alert(decrypt(config.get(`passwords.${key}.password`)))
+}
+
+function change (key) 
+{
+    element = `
+        <div id="prompt">
+            <div id="inputs">
+            <input id="change-username" type="text" placeholder="username">
+            <input id="change-email" type="text" placeholder="email">
+            <input id="change-password" type="text" placeholder="password">
+            
+            <div id="buttons">
+                <button onclick="done('change', '${key}')" id="done">done</button>
+                <button onclick="cancel()" id="cancel">cancel</button>
+            </div>
+        </div>
+    `
+    document.getElementById("main").classList.add("blurred")
+    document.body.innerHTML += element
+
+    document.getElementById(`change-username`).value = decrypt(config.get(`passwords.${key}.username`))
+    document.getElementById(`change-email`).value = decrypt(config.get(`passwords.${key}.email`))
+    document.getElementById(`change-password`).value = decrypt(config.get(`passwords.${key}.password`))
+}
+
+function remove (key)
+{
+    config.unset(`passwords.${key}`)
+    Reload()
+}
+
+function done (form, key)
+{
+    let domain = form == 'add' ? document.getElementById(`add-domain`).value : key
+    let username = document.getElementById(`${form}-username`).value
+    let email = document.getElementById(`${form}-email`).value
+    let password = document.getElementById(`${form}-password`).value
+    let save = true
 
     if (!username && !email) {
         alert(`error: username, email field is empty`)
@@ -128,28 +165,5 @@ function add_done ()
     }
     Reload()
 }
-
-function cancel () 
-{
-    document.getElementById("main").classList.remove("blurred")
-    document.getElementById("prompt").remove()
-}
-
-function show (key) 
-{
-    alert(decrypt(config.get(`passwords.${key}.password`)))
-}
-
-function change (key) 
-{
-
-}
-
-function remove (key)
-{
-    config.unset(`passwords.${key}`)
-    Reload()
-}
-
 
 LoadPasswords()
