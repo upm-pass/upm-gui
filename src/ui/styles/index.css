@@ -8,6 +8,40 @@ br {
     pointer-events: none;
 }
 
+#add-buttons {
+    position: absolute;
+    margin-right: 10px;
+    margin-bottom: 8px;
+    right: 0;
+    bottom: 0;
+}
+
+#add-done {
+    border: none;
+    border-radius: 3px;
+    padding: 4px 15px;
+    outline: none;
+    background:  rgb(45, 202, 58);
+    cursor: pointer;
+}
+
+#add-done:hover {
+    background:  rgb(41, 182, 53);
+}
+
+#add-cancel {
+    border: none;
+    border-radius: 3px;
+    padding: 4px 15px;
+    outline: none;
+    background: rgb(207, 42, 42);
+    cursor: pointer;
+}
+
+#add-cancel:hover {
+    background:  rgb(182, 41, 41);
+}
+
 #prompt {
     width: 300px;
     height: 200px;
@@ -19,6 +53,7 @@ br {
     transform: translate(-50%, -50%);
     padding: 6px;
     z-index: 20;
+    border-radius: 4px;
 }
 
 #search-dir {
