@@ -104,7 +104,17 @@ function cancel ()
 
 function show (key) 
 {
-    alert(decrypt(config.get(`passwords.${key}.password`)))
+    element = `
+        <div style="height: 100px;" id="prompt">
+            <input id="prompt-password" onclick="this.select()" value="${decrypt(config.get(`passwords.${key}.password`))}"></input>
+            
+            <div id="buttons">
+            <button onclick="cancel()" id="cancel">cancel</button>
+            </div>
+        </div>
+    `
+    document.getElementById("main").classList.add("blurred")
+    document.body.innerHTML += element
 }
 
 function change (key) 
@@ -125,9 +135,9 @@ function change (key)
     document.getElementById("main").classList.add("blurred")
     document.body.innerHTML += element
 
-    document.getElementById(`change-username`).value = decrypt(config.get(`passwords.${key}.username`))
-    document.getElementById(`change-email`).value = decrypt(config.get(`passwords.${key}.email`))
-    document.getElementById(`change-password`).value = decrypt(config.get(`passwords.${key}.password`))
+    document.getElementById(`change-username`).value = config.get(`passwords.${key}.username`) != undefined ? decrypt(config.get(`passwords.${key}.username`)) : null
+    document.getElementById(`change-email`).value = config.get(`passwords.${key}.email`) != undefined ? decrypt(config.get(`passwords.${key}.email`)) : null
+    document.getElementById(`change-password`).value = config.get(`passwords.${key}.password`) != undefined ? decrypt(config.get(`passwords.${key}.password`)) : null
 }
 
 function remove (key)
