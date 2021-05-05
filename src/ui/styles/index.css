@@ -8,7 +8,27 @@ br {
     pointer-events: none;
 }
 
-#add-buttons {
+#inputs {
+    margin-left: 18%;
+}
+
+#inputs input {
+    outline: none;
+    border: 1px solid #545454;
+    padding: 5px 4px;
+    margin-top: 10px;
+    border-radius: 1px;
+}
+
+#inputs input:hover {
+    border: 1px solid #757575;
+}
+
+#inputs input:focus {
+    border: 1px solid #3b73db;
+}
+
+#buttons {
     position: absolute;
     margin-right: 10px;
     margin-bottom: 8px;
@@ -16,7 +36,7 @@ br {
     bottom: 0;
 }
 
-#add-done {
+#done {
     border: none;
     border-radius: 3px;
     padding: 4px 15px;
@@ -24,12 +44,11 @@ br {
     background:  rgb(45, 202, 58);
     cursor: pointer;
 }
-
-#add-done:hover {
+#done:hover {
     background:  rgb(41, 182, 53);
 }
 
-#add-cancel {
+#cancel {
     border: none;
     border-radius: 3px;
     padding: 4px 15px;
@@ -37,8 +56,7 @@ br {
     background: rgb(207, 42, 42);
     cursor: pointer;
 }
-
-#add-cancel:hover {
+#cancel:hover {
     background:  rgb(182, 41, 41);
 }
 
