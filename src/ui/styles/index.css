@@ -28,6 +28,21 @@ br {
     border: 1px solid #3b73db;
 }
 
+#prompt-password {
+    margin-left: 15%;
+    outline: none;
+    border: 1px solid #545454;
+    padding: 5px 10px;
+    margin-top: 10px;
+    border-radius: 1px;
+}
+#inputs input:hover {
+    border: 1px solid #757575;
+}
+
+#inputs input:focus {
+    border: 1px solid #3b73db;
+}
 #buttons {
     position: absolute;
     margin-right: 10px;
@@ -107,7 +122,6 @@ br {
     margin-left: 25px;
     outline: none;
     border: none;
-    padding: 5px 4px;
     border-radius: 3px;
     cursor: pointer;
     background: #c41818;
@@ -123,7 +137,6 @@ br {
     margin-left: 15px;
     outline: none;
     border: none;
-    padding: 5px 4px;
     border-radius: 3px;
     cursor: pointer;
     background:#19a736;
@@ -159,12 +172,11 @@ br {
     margin-left: 90px;
     outline: none;
     border: none;
-    padding: 5px 4px;
+    padding: 4px 10px;
     border-radius: 3px;
     cursor: pointer;
     background:#1067b9;
     border-radius: 3px;
-    padding: 8px 5px;
 }
 
 #show:hover {
@@ -174,12 +186,11 @@ br {
 #change {
     outline: none;
     border: none;
-    padding: 5px 4px;
+    padding: 4px 10px;
     border-radius: 3px;
     cursor: pointer;
     background:#d49918;
     border-radius: 3px;
-    padding: 8px 5px;
 }
 
 #change:hover {
@@ -189,12 +200,11 @@ br {
 #remove {
     outline: none;
     border: none;
-    padding: 5px 4px;
+    padding: 4px 10px;
     border-radius: 3px;
     cursor: pointer;
     background: #c41818;
     border-radius: 3px;
-    padding: 8px 5px;
 }
 
 #remove:hover {
