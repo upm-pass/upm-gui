@@ -12,6 +12,18 @@ function Reload () {
     location.reload()
 }
 
+const generate = length => {
+    char = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%*=';
+    var pass = '';
+    
+    for (var x = 0; x < length; x++) {
+        var i = Math.floor(Math.random() * char.length);
+        pass += char.charAt(i);
+    }
+
+    return pass
+}
+
 function RemoveAll () 
 {
     const oldValue = document.getElementById('remove-all').innerHTML
@@ -66,14 +78,15 @@ function add ()
 {
     element = `
         <div id="prompt">
+            <div id="inputs">
             <input id="add-domain" type="text" placeholder="domain">
             <input id="add-username" type="text" placeholder="username">
             <input id="add-email" type="text" placeholder="email">
             <input id="add-password" type="text" placeholder="password">
             
-            <div id="add-buttons">
-                <button id="add-done">done</button>
-                <button onclick="cancel()" id="add-cancel">cancel</button>
+            <div id="buttons">
+                <button onclick="add_done()" id="done">done</button>
+                <button onclick="cancel()" id="cancel">cancel</button>
             </div>
         </div>
     `
@@ -81,12 +94,45 @@ function add ()
     document.body.innerHTML += element
 }
 
-function add_done () 
-{}
+function add_done ()
+{
+    let domain = document.getElementById("add-domain").value
+    let username = document.getElementById("add-username").value
+    let email = document.getElementById("add-email").value
+    let password = document.getElementById("add-password").value
+    let save = true
+
+    if (!domain) {
+        alert(`error: no domain name`)
+        save = false
+    }
+
+    if (!username && !email) {
+        alert(`error: username, email field is empty`)
+        save = false
+    }
+
+    if (save) {
+        if (username) {
+            config.set(`passwords.${domain}.username`, encrypt(username))
+        }
+        if (email) {
+            config.set(`passwords.${domain}.email`, encrypt(email))
+        }
+        if (password) {
+            config.set(`passwords.${domain}.password`, encrypt(password))
+        } else {
+            length = Math.floor(Math.random() * 38) + 17
+            config.set(`passwords.${domain}.password`, encrypt(generate(length)))
+        }
+    }
+    Reload()
+}
 
 function cancel () 
 {
     document.getElementById("main").classList.remove("blurred")
+    document.getElementById("prompt").remove()
 }
 
 function show (key) 
@@ -106,5 +152,4 @@ function remove (key)
 }
 
 
-add()
 LoadPasswords()
