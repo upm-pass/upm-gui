@@ -1,8 +1,10 @@
 const editJsonFile = require("edit-json-file");
 const { encrypt, decrypt } = require("../crpyto")
-let config = editJsonFile(`/home/senpai/.upm`, {autosave: true})
+let config_file = editJsonFile(`/home/senpai/.config/upm/config`, {autosave: true})
+let config = editJsonFile(config_file.get("upm_path"), {autosave: true})
 
 document.getElementById("remove-all").addEventListener("click", RemoveAll);
+document.getElementById("search-icon").addEventListener("click", search);
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -35,6 +37,21 @@ function RemoveAll ()
         document.getElementById('remove-all').innerHTML = oldValue
     }) 
     Reload()
+}
+
+function search ()
+{
+    let search_key_word = document.getElementById("search").value
+    
+    if (search_key_word) {
+        if (config.get(`passwords.${search_key_word}`)) {
+            
+        } else {
+            alert("no domain with the name: " + search_key_word)
+        }
+    } else {
+        alert("search form is empty!")
+    }
 }
 
 function LoadPasswords () 
