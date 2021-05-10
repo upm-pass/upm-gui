@@ -89,8 +89,6 @@ function LoadPasswords ()
     let data = config.get("passwords")
     var container = document.getElementById("passwords");
 
-    // console.log(data);
-
     for (var key in data) {
         container.innerHTML += CreatePasswordElement(key);
     }
