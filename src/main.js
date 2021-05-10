@@ -1,6 +1,6 @@
 const editJsonFile = require("edit-json-file");
 const { encrypt, decrypt } = require("../crpyto")
-let config_file = editJsonFile(`/home/senpai/.config/upm/config`, {autosave: true})
+let config_file = editJsonFile(`/home/${require("os").userInfo().username}/.config/upm/config`, {autosave: true})
 let config = editJsonFile(config_file.get("upm_path"), {autosave: true})
 
 document.getElementById("remove-all").addEventListener("click", RemoveAll);
@@ -17,6 +17,9 @@ function sleep(ms) {
 function Reload () {
     location.reload()
 }
+
+function notification (color, title, message)
+{}
 
 const generate = length => {
     char = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%*=';
