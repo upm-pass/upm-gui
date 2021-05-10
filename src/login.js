@@ -4,6 +4,10 @@ let config_file = editJsonFile(`/home/senpai/.config/upm/config`, {autosave: tru
 let config = editJsonFile(config_file.get("upm_path"), {autosave: true})
 
 document.getElementById("login").addEventListener("click", HandleLogin);
+document.getElementById("masterkey-input").addEventListener("keyup", ({key}) => {
+    if (key == "Enter")
+        HandleLogin()
+})
 
 function HandleLogin() {
     let input = document.getElementById('masterkey-input').value
