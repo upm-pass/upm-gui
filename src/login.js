@@ -3,6 +3,7 @@ const { encrypt, decrypt } = require("../crpyto")
 let config_file = editJsonFile(`/home/senpai/.config/upm/config`, {autosave: true})
 let config = editJsonFile(config_file.get("upm_path"), {autosave: true})
 
+document.getElementById("masterkey-input").focus()
 document.getElementById("login").addEventListener("click", HandleLogin);
 document.getElementById("masterkey-input").addEventListener("keyup", ({key}) => {
     if (key == "Enter")
