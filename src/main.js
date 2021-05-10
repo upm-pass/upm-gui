@@ -5,6 +5,10 @@ let config = editJsonFile(config_file.get("upm_path"), {autosave: true})
 
 document.getElementById("remove-all").addEventListener("click", RemoveAll);
 document.getElementById("search-icon").addEventListener("click", search);
+document.getElementById("search").addEventListener("keyup", ({key}) => {
+    if (key == "Enter")
+        search()
+})
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -26,6 +30,31 @@ const generate = length => {
     return pass
 }
 
+function CreatePasswordElement (domain)
+{
+    let username = config.get(`passwords.${domain}.username`) != undefined ? decrypt(config.get(`passwords.${domain}.username`)) : "empty"
+    let email = config.get(`passwords.${domain}.email`) != undefined ? decrypt(config.get(`passwords.${domain}.email`)) : "empty"
+    let password = config.get(`passwords.${domain}.password`) != undefined ? decrypt(config.get(`passwords.${domain}.password`)) : "empty"
+    
+    return element = `
+        <br>
+        <div class="psw-elem">
+            <div>
+                <span style="padding-left: 2px;">${domain}</span>
+                <span class="text-span">${username}</span>
+                <span class="text-span">${email}</span>
+            </div>
+            <br>
+            <span id="password">*****</span>
+            <button onclick="show('${domain}')" id="show">show</button>
+            <button onclick="change('${domain}')" id="change">change</button>
+            <button onclick="remove('${domain}')" id="remove">remove</button>
+        </div>
+        <br>
+        <div class="br"></div>
+    `
+}
+
 function RemoveAll () 
 {
     const oldValue = document.getElementById('remove-all').innerHTML
@@ -45,7 +74,8 @@ function search ()
     
     if (search_key_word) {
         if (config.get(`passwords.${search_key_word}`)) {
-            
+            document.getElementById("passwords").innerHTML = ""
+            document.getElementById("passwords").innerHTML += CreatePasswordElement(search_key_word)
         } else {
             alert("no domain with the name: " + search_key_word)
         }
@@ -57,37 +87,12 @@ function search ()
 function LoadPasswords () 
 {
     let data = config.get("passwords")
-    var count = data.length;
     var container = document.getElementById("passwords");
-    var Element;
 
     // console.log(data);
 
     for (var key in data) {
-        let domain = key
-        let username = config.get(`passwords.${key}.username`) != undefined ? decrypt(config.get(`passwords.${key}.username`)) : "empty"
-        let email = config.get(`passwords.${key}.email`) != undefined ? decrypt(config.get(`passwords.${key}.email`)) : "empty"
-        let password = config.get(`passwords.${key}.password`) != undefined ? decrypt(config.get(`passwords.${key}.password`)) : "empty"
-        
-        element = `
-            <br>
-            <div class="psw-elem">
-                <div>
-                    <span style="padding-left: 2px;">${domain}</span>
-                    <span class="text-span">${username}</span>
-                    <span class="text-span">${email}</span>
-                </div>
-                <br>
-                <span id="password">*****</span>
-                <button onclick="show('${domain}')" id="show">show</button>
-                <button onclick="change('${domain}')" id="change">change</button>
-                <button onclick="remove('${domain}')" id="remove">remove</button>
-            </div>
-            <br>
-            <div class="br"></div>
-        `
-
-        container.innerHTML += element;
+        container.innerHTML += CreatePasswordElement(key);
     }
 }
 
