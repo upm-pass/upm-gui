@@ -1,7 +1,8 @@
 const {app, BrowserWindow} = require('electron')
 const path = require('path')
 const editJsonFile = require("edit-json-file")
-let config = editJsonFile(`/home/senpai/.upm`, {autosave: true})
+let config_file = editJsonFile(`/home/senpai/.config/upm/config`, {autosave: true})
+let config = editJsonFile(config_file.get("upm_path"), {autosave: true})
 
 function createWindow () {
     const mainWindow = new BrowserWindow({
