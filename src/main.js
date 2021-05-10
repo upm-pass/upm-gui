@@ -34,7 +34,6 @@ function CreatePasswordElement (domain)
 {
     let username = config.get(`passwords.${domain}.username`) != undefined ? decrypt(config.get(`passwords.${domain}.username`)) : "empty"
     let email = config.get(`passwords.${domain}.email`) != undefined ? decrypt(config.get(`passwords.${domain}.email`)) : "empty"
-    let password = config.get(`passwords.${domain}.password`) != undefined ? decrypt(config.get(`passwords.${domain}.password`)) : "empty"
     
     return element = `
         <br>
@@ -112,6 +111,11 @@ function add ()
     `
     document.getElementById("main").classList.add("blurred")
     document.body.innerHTML += element
+    document.getElementById("add-domain").focus()
+    document.getElementById("add-domain").addEventListener("keyup", ({key}) => {if (key == "Enter") {document.getElementById("add-username").focus()}})
+    document.getElementById("add-username").addEventListener("keyup", ({key}) => {if (key == "Enter") {document.getElementById("add-email").focus()}})
+    document.getElementById("add-email").addEventListener("keyup", ({key}) => {if (key == "Enter") {document.getElementById("add-password").focus()}})
+    document.getElementById("add-password").addEventListener("keyup", ({key}) => {if (key == "Enter") {done('add', null)}})
 }
 
 
