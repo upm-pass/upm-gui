@@ -105,15 +105,14 @@ br {
 }
 
 #search-div {
-    /* margin-left: 35%; */
-    display: table;
-    margin: 0 auto;
+    float: left;
+    margin: 0 20px;
 }
 
 #search {
     outline: none;
     border: 1px solid #545454;
-    padding: 5px 4px;
+    padding: 4px 10px;
     border-radius: 3px;
 }
 
@@ -131,9 +130,14 @@ br {
 }
 
 #menu-buttons {
-    margin-top: 10px;
-    display: table;
-    margin: 8px auto;
+    float: right;
+    margin: 0 20px;
+}
+
+#nav {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    overflow: hidden;
 }
 
 #remove-all {
@@ -143,7 +147,7 @@ br {
     cursor: pointer;
     background: #c41818;
     border-radius: 3px;
-    padding: 8px 5px;
+    padding: 4px 10px;
 }
 
 #remove-all:hover {
@@ -151,14 +155,12 @@ br {
 }
 
 #add {
-    margin-left: 50px;
     outline: none;
     border: none;
     border-radius: 3px;
     cursor: pointer;
     background:#19a736;
-    border-radius: 3px;
-    padding: 8px 5px;
+    padding: 4px 10px;
 }
 
 #add:hover {
@@ -168,6 +170,7 @@ br {
 #main-br {
     height: 1px;
     background-color: #545454;
+    clear: both;
 }
 
 .br {
@@ -181,7 +184,6 @@ br {
 .psw-elem {
     display: table;
     margin: 0 auto;
-    /* margin-left: 50px; */
 }
 
 .text-span {
@@ -196,7 +198,6 @@ br {
     border-radius: 3px;
     cursor: pointer;
     background:#1067b9;
-    border-radius: 3px;
 }
 
 #show:hover {
@@ -211,7 +212,6 @@ br {
     border-radius: 3px;
     cursor: pointer;
     background:#d49918;
-    border-radius: 3px;
 }
 
 #change:hover {
@@ -225,7 +225,6 @@ br {
     border-radius: 3px;
     cursor: pointer;
     background: #c41818;
-    border-radius: 3px;
 }
 
 #remove:hover {
