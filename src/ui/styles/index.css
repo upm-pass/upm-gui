@@ -115,12 +115,12 @@ br {
     z-index: 20;
 }
 
-#notification-text span {
-
+.green {
+    background: #15b936;
 }
 
 .red {
-    background: rgb(238, 44, 44);
+    background: rgb(207, 29, 29);
 }
 
 #search-div {
