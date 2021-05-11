@@ -78,16 +78,17 @@ function CreatePasswordElement (domain)
     `
 }
 
-function RemoveAll () 
+async function RemoveAll () 
 {
     const oldValue = document.getElementById('remove-all').innerHTML
     config.unset("passwords")
-    sleep(100).then(() => {
-        document.getElementById('remove-all').innerHTML = 'done'
-    })
-    sleep(1000).then(() => {
-        document.getElementById('remove-all').innerHTML = oldValue
-    }) 
+    
+    await sleep(100)
+    document.getElementById('remove-all').innerHTML = 'done'
+    
+    await sleep(1000)
+    document.getElementById('remove-all').innerHTML = oldValue 
+    
     Reload()
 }
 
