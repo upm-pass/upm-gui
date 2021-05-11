@@ -38,7 +38,8 @@ async function notification (color, title, message)
 
 function close_notification () 
 {
-    document.getElementById("notification").remove()
+    if (document.getElementById("notification"))
+        document.getElementById("notification").remove()
 }
 
 const generate = length => {
