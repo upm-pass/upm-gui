@@ -19,7 +19,25 @@ function Reload () {
 }
 
 function notification (color, title, message)
-{}
+{
+    element = `
+        <div onclick="close_notification()" id="notification" class="${color}">
+            <div id="notification-text" class="${color}">
+                <span class="${color}">${title}</span>
+                <div style="width: auto; height: 0.8px; background-color: #fff;"></div>
+                <span class="${color}">${message}</span>
+            </div>
+
+        </div>
+    `
+
+    document.body.innerHTML += element
+}
+
+function close_notification () 
+{
+    document.getElementById("notification").remove()
+}
 
 const generate = length => {
     char = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%*=';
@@ -121,8 +139,6 @@ function add ()
     document.getElementById("add-password").addEventListener("keyup", ({key}) => {if (key == "Enter") {done('add', null)}})
 }
 
-
-
 function cancel () 
 {
     document.getElementById("main").classList.remove("blurred")
@@ -203,4 +219,5 @@ function done (form, key)
     Reload()
 }
 
+notification("red", "change", "error: username, email field is empty")
 LoadPasswords()
