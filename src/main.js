@@ -4,7 +4,6 @@ let config_file = editJsonFile(`/home/${require("os").userInfo().username}/.conf
 let config = editJsonFile(config_file.get("upm_path"), {autosave: true})
 
 document.getElementById("remove-all").addEventListener("click", RemoveAll);
-document.getElementById("search-icon").addEventListener("click", search);
 document.getElementById("search").addEventListener("keyup", ({key}) => {
     if (key == "Enter")
         search()
@@ -18,7 +17,7 @@ function Reload () {
     location.reload()
 }
 
-function notification (color, title, message)
+async function notification (color, title, message)
 {
     element = `
         <div onclick="close_notification()" id="notification" class="${color}">
@@ -32,6 +31,9 @@ function notification (color, title, message)
     `
 
     document.body.innerHTML += element
+
+    await sleep(2500)
+    close_notification()
 }
 
 function close_notification () 
@@ -97,10 +99,10 @@ function search ()
             document.getElementById("passwords").innerHTML = ""
             document.getElementById("passwords").innerHTML += CreatePasswordElement(search_key_word)
         } else {
-            alert("no domain with the name: " + search_key_word)
+            notification("red", "error", "no domain with the name: " + search_key_word)
         }
     } else {
-        alert("search form is empty!")
+        notification("red", "error", "search form is empty!")
     }
 }
 
@@ -198,7 +200,7 @@ function done (form, key)
     let save = true
 
     if (!username && !email) {
-        alert(`error: username, email field is empty`)
+        notification("red", "error", "username, email field is empty")
         save = false
     }
 
@@ -215,9 +217,8 @@ function done (form, key)
             length = Math.floor(Math.random() * 38) + 17
             config.set(`passwords.${domain}.password`, encrypt(generate(length)))
         }
+        Reload()
     }
-    Reload()
 }
 
-notification("red", "change", "error: username, email field is empty")
 LoadPasswords()
