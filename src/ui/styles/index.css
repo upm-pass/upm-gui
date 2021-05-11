@@ -104,6 +104,25 @@ br {
     border-radius: 4px;
 }
 
+#notification {
+    width: 200px;
+    height: auto;
+    border: #838383 solid 1px;
+    position: absolute;
+    right: 1%;
+    top: 1%;
+    padding: 6px;
+    z-index: 20;
+}
+
+#notification-text span {
+
+}
+
+.red {
+    background: rgb(238, 44, 44);
+}
+
 #search-div {
     float: left;
     margin: 0 20px;
