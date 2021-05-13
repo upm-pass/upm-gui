@@ -1,5 +1,5 @@
 const editJsonFile = require("edit-json-file");
-const { encrypt, decrypt } = require("../crpyto")
+const { encrypt, decrypt } = require("../lib/crpyto")
 let config_file = editJsonFile(`/home/${require("os").userInfo().username}/.config/upm/config`, {autosave: true})
 let config = editJsonFile(config_file.get("upm_path"), {autosave: true})
 
@@ -90,22 +90,6 @@ async function RemoveAll ()
     document.getElementById('remove-all').innerHTML = oldValue 
     
     Reload()
-}
-
-function search ()
-{
-    let search_key_word = document.getElementById("search").value
-    
-    if (search_key_word) {
-        if (config.get(`passwords.${search_key_word}`)) {
-            document.getElementById("passwords").innerHTML = ""
-            document.getElementById("passwords").innerHTML += CreatePasswordElement(search_key_word)
-        } else {
-            notification("red", "error", "no domain with the name: " + search_key_word)
-        }
-    } else {
-        notification("red", "error", "search form is empty!")
-    }
 }
 
 function LoadPasswords () 
