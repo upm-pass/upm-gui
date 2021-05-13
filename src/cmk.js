@@ -1,6 +1,6 @@
 // create master key
 const editJsonFile = require("edit-json-file");
-const { encrypt, decrypt } = require("../crpyto")
+const { encrypt, decrypt } = require("../lib/crpyto")
 let config_file = editJsonFile(`/home/${require("os").userInfo().username}/.config/upm/config`, {autosave: true})
 let config = editJsonFile(config_file.get("upm_path"), {autosave: true})
 
