@@ -19,8 +19,9 @@ function Reload () {
 
 async function notification (color, title, message)
 {
+    let position = config_file.get("settings.notification_position") ==  undefined ? undefined :  config_file.get("settings.notification_position")
     element = `
-        <div onclick="close_notification()" id="notification" class="${color}">
+        <div onclick="close_notification()" id="notification" class="${color} ${position}">
             <div id="notification-text" class="${color}">
                 <span class="${color}">${title}</span>
                 <div style="width: auto; height: 0.8px; background-color: #fff;"></div>
