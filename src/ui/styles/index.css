@@ -108,11 +108,20 @@ br {
     width: 200px;
     height: auto;
     border: #838383 solid 1px;
+    padding: 6px;
+    z-index: 20;
+}
+
+.top_right {
     position: absolute;
     right: 1%;
     top: 1%;
-    padding: 6px;
-    z-index: 20;
+}
+
+.top_left {
+    position: absolute;
+    left: 1%;
+    top: 1%;
 }
 
 .green {
