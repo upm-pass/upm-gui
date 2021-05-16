@@ -154,6 +154,8 @@ br {
 
 #search-icon {
     background-color: none;
+    width: 25px;
+    height: 20px;
     cursor: pointer;
 }
 
