@@ -64,8 +64,7 @@ After that run gupm from your terminal or application launcher
 }
 ```
 ## **Available options**
-| setting               | options
+| name                  | options
 | ----------------------|:------------------
 | notification_position | top_right, top_left
-|
-|
+
