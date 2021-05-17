@@ -63,8 +63,9 @@ After that run gupm from your terminal or application launcher
     }
 }
 ```
-
-settings:
-    notification_position: top_right, top_left
-
-
+## **Available options**
+| setting              | options
+| ---------------------|:------------------
+| notification_position top_right, top_left
+|
+|
