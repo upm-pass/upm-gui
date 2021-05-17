@@ -6,6 +6,9 @@
   "scripts": {
     "start": "electron ."
   },
+  "bin": {
+    "gupm": "./run"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/upm-pass/upm-gui.git"
