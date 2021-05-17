@@ -1,7 +1,7 @@
 # upm-gui ( uwu password manager )
 
 ## **Overview**
-upm is a free open source password manager, which helps you to manage your passwords, You can store all your passwords in one database, which is locked with a master key so you only have to remember one single master key to unlock the whole database
+upm is a free open source offline password manager, which helps you to manage your passwords, You can store all your passwords in one database, which is locked with a master key so you only have to remember one single master key to unlock the whole database
 
 ## **Table of contents**
 1. [**installation**](#Installation)
