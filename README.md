@@ -1,7 +1,7 @@
 # upm-gui ( uwu password manager )
 
 ## **Overview**
-...
+upm is a free open source password manager, which helps you to manage your passwords, You can store all your passwords in one database, which is locked with a master key so you only have to remember one single master key to unlock the whole database
 
 ## **Table of contents**
 1. [**installation**](#Installation)
@@ -21,12 +21,12 @@ $ git clone https://github.com/upm-pass/upm-gui.git
 
 cd project directory 
 ```bash 
-cd upm-gui/
+$ cd upm-gui/
 ```
 
 to install upm-gui run
 ```bash
-./install.sh
+$ ./install.sh
 ```
 After that run gupm from your terminal or application launcher
 
