@@ -19,7 +19,7 @@ Installation guide for upm (uwu password manager)
 $ git clone https://github.com/upm-pass/upm-gui.git
 ```
 
-cd project dir
+cd project directory 
 ```bash 
 cd upm-gui/
 ```
@@ -38,18 +38,32 @@ After that run gupm from your terminal or application launcher
 
 ## **Hotkeys**
 
-### hotkeys:
-
 | Action                                      |   Shortcut
 | --------------------------------------------|:-----------------------------
 | focus on search bar                         | <kbd>ctrl</kbd>+<kbd>f</kbd>
 | add new password                            | <kbd>ctrl</kbd>+<kbd>d</kbd>
 
 
-
 <br>
 
 ## **Settings**
+
+## Config file path:
+#### **Linux**:
+    /home/$USER/.config/upm/config
+
+#### **Windows**:
+    ?
+
+## **default settings**
+```json
+{
+    "settings": {
+        "notification_position": "top_right"
+    }
+}
+```
+
 settings:
     notification_position: top_right, top_left
 
