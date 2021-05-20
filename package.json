@@ -24,9 +24,7 @@
   },
   "homepage": "https://github.com/upm-pass/upm-gui#readme",
   "dependencies": {
-    "edit-json-file": "^1.6.0",
-    "electron": "^12.0.4",
-    "electron-builder": "^22.10.5"
+    "edit-json-file": "^1.6.0"
   },
   "build": {
     "appId": "com.senpai-10.gupm",
@@ -37,5 +35,9 @@
     "portable": {
       "artifactName": "gupm.exe"
     }
+  },
+  "devDependencies": {
+    "electron": "^12.0.9",
+    "electron-builder": "^22.10.5"
   }
 }
