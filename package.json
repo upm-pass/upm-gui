@@ -30,7 +30,8 @@
     "appId": "com.senpai-10.gupm",
     "productName": "gupm",
     "win": {
-      "target": "portable"
+      "target": "portable",
+      "icon": "gupm.ico"
     },
     "portable": {
       "artifactName": "gupm.exe"
