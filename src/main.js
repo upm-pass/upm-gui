@@ -1,7 +1,6 @@
 const editJsonFile = require("edit-json-file");
 const { encrypt, decrypt } = require("../lib/crpyto")
-let config_file = editJsonFile(`/home/${require("os").userInfo().username}/.config/upm/config`, {autosave: true})
-let config = editJsonFile(config_file.get("upm_path"), {autosave: true})
+const { config } = require("../../config")
 
 document.getElementById("remove-all").addEventListener("click", RemoveAll);
 document.getElementById("search").addEventListener("keyup", ({key}) => {

@@ -1,8 +1,8 @@
-const editjsonfile = require("edit-json-file")
 const crypto = require('crypto')
 const username = require("os").userInfo().username
 const fs = require("fs")
-let config = editjsonfile(`/home/${username}/.config/upm/secretkey`, {autosave: true})
+const { secretkey, get_secretkey_file_path } = require("../../config")
+
 
 const algorithm = 'aes-256-ctr';
 const iv = crypto.randomBytes(16);
@@ -20,13 +20,15 @@ const generateSecretkey = () => {
 }
 
 
-if (!fs.existsSync(`/home/${username}/.config/upm/secretkey`)) {
-    fs.mkdirSync(`/home/${username}/.config/upm`)
-    config.set("secretkey", generateSecretkey())
+if (!fs.existsSync(get_secretkey_file_path())) {
+    // if (!is_windows) {
+    //     fs.mkdirSync(`/home/${username}/.config/upm`)        
+    // }
+    secretkey.set("secretkey", generateSecretkey())
     process.exit()
 }
 
-const secretKey = config.get("secretkey")
+const secretKey = secretkey.get("secretkey")
 
 const encrypt = (text) => {
 
