@@ -8,7 +8,7 @@ which is locked with a master key
 so you only have to remember one single master key to unlock the whole database
 
 ## **Table of contents**
-1. [**Preview**](#Preview)
+1. [**preview**](#Preview)
 2. [**installation**](#Installation)
     * [**linux**](#linux)
     * [**windows**](#windows)
