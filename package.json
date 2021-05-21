@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "electron": "^12.0.9",
-    "electron-builder": "^22.10.5"
+    "electron-builder": "^22.9.1"
   },
   "build": {
     "appId": "com.senpai-10.gupm",
