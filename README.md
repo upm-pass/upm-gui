@@ -8,13 +8,18 @@ which is locked with a master key
 so you only have to remember one single master key to unlock the whole database
 
 ## **Table of contents**
-1. [**installation**](#Installation)
+1. [**Preview**](#Preview)
+2. [**installation**](#Installation)
     * [**linux**](#linux)
     * [**windows**](#windows)
         * [**release page**](#Release-page)
         * [**build from source**](#Build-from-source)
-2. [**hotkeys**](#hotkeys)
-3. [**settings**](#settings)
+3. [**hotkeys**](#hotkeys)
+4. [**settings**](#settings)
+
+## **Preview**
+![login](preview/login.png)
+![](preview/main.png)
 
 ## **Installation**
 Installation guide for upm (uwu password manager)
