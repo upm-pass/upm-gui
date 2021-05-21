@@ -35,7 +35,7 @@
     "productName": "gupm",
     "win": {
       "target": "portable",
-      "icon": "gupm.ico"
+      "icon": "gupm.png"
     },
     "portable": {
       "artifactName": "gupm.exe"
