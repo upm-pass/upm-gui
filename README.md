@@ -11,8 +11,8 @@ so you only have to remember one single master key to unlock the whole database
 1. [**installation**](#Installation)
     * [**linux**](#linux)
     * [**windows**](#windows)
-        * [**Release page**](#Release-page)
-        * [**Build from source**](#Build-from-source)
+        * [**release page**](#Release-page)
+        * [**build from source**](#Build-from-source)
 2. [**hotkeys**](#hotkeys)
 3. [**settings**](#settings)
 
