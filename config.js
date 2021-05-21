@@ -19,25 +19,7 @@ function get_upm_path ()
     }
 }
 
-function get_upm_config_file_path ()
-{
-    if (is_windows) {
-        return `${process.env.APPDATA}/upm-gui/config`
-    } else {
-        return `/home/${require("os").userInfo().username}/.config/upm/config`
-    } 
-}
-
-function get_secretkey_file_path ()
-{
-    if (is_windows) {
-        return `${process.env.APPDATA}/upm-gui/secretkey`
-    } else {
-        return `/home/${require("os").userInfo().username}/.config/upm/secretkey`
-    } 
-}
-
-var config_file = editJsonFile(get_upm_config_file_path(), {autosave: true}) 
+var config_file = process.platform == "win32" ? editJsonFile(`${process.env.APPDATA}/upm-gui/config`, {autosave: true}) : editJsonFile(`/home/${require("os").userInfo().username}/.config/upm/config`, {autosave: true})
 
 if (!config_file.get("settings")) {
     config_file.set("settings", default_config)
@@ -47,6 +29,6 @@ if (!config_file.get("upm_path")) {
 }
 
 var config = editJsonFile(config_file.get("upm_path"), {autosave: true})
-var secretkey = editJsonFile(get_secretkey_file_path(), {autosave: true}) 
+var secretkey = process.platform == "win32" ? editJsonFile(`${process.env.APPDATA}/upm-gui/secretkey`, {autosave: true}) : editJsonFile(`/home/${require("os").userInfo().username}/.config/upm/secretkey`, {autosave: true})
 
-module.exports = { config, config_file, secretkey, is_windows, get_secretkey_file_path}
+module.exports = { config, config_file, secretkey, is_windows }

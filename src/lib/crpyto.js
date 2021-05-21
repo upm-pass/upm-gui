@@ -1,7 +1,7 @@
 const crypto = require('crypto')
 const username = require("os").userInfo().username
 const fs = require("fs")
-const { secretkey, get_secretkey_file_path } = require("../../config")
+const { secretkey } = require("../../config")
 
 
 const algorithm = 'aes-256-ctr';
@@ -19,8 +19,9 @@ const generateSecretkey = () => {
     return pass
 }
 
+var secretkey_path = process.platform == "win32" ? `${process.env.APPDATA}/upm-gui/secretkey` : `/home/${require("os").userInfo().username}/.config/upm/secretkey`
 
-if (!fs.existsSync(get_secretkey_file_path())) {
+if (!fs.existsSync(secretkey_path)) {
     // if (!is_windows) {
     //     fs.mkdirSync(`/home/${username}/.config/upm`)        
     // }
