@@ -35,8 +35,10 @@ $ ./install.sh
 After that run gupm from your terminal or application launcher
 
 
-### **windows**
-- coming soon
+### **Windows**
+
+- Go to [latest version](https://github.com/upm-pass/upm-gui/releases/tag/v1.0.0)
+- Download gupm.exe
 
 <br>
 
