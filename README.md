@@ -37,8 +37,31 @@ After that run gupm from your terminal or application launcher
 
 ### **Windows**
 
+#### **Release page**
+
 - Go to [latest version](https://github.com/upm-pass/upm-gui/releases/tag/v1.0.0)
 - Download gupm.exe
+
+#### **Build from source**
+Clone the project
+```bash
+$ git clone https://github.com/upm-pass/upm-gui.git
+```
+
+cd project directory
+```bash
+$ cd upm-gui/
+```
+
+run npm install
+```bash
+$ npm install
+```
+
+build 
+```bash
+$ npm run build-win
+```
 
 <br>
 
