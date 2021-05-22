@@ -1,0 +1,32 @@
+#notification {
+    width: 200px;
+    height: auto;
+    padding: 6px;
+    z-index: 20;
+    cursor: pointer;
+    box-shadow: 6px 8px 50px 4px rgba(0,0,0,0.35);
+}
+
+.top_right {
+    position: absolute;
+    right: 0%;
+    top: 5%;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.top_left {
+    position: absolute;
+    left: 0%;
+    top: 5%;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.green {
+    background: #15b936;
+}
+
+.red {
+    background: rgb(207, 29, 29);
+}
