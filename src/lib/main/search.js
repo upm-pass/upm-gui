@@ -7,9 +7,9 @@ function search ()
             document.getElementById("passwords").innerHTML = ""
             document.getElementById("passwords").innerHTML += CreatePasswordElement(search_key_word)
         } else {
-            notification("red", "error", "no domain with the name: " + search_key_word)
+            notification("red", "no domain with the name: " + search_key_word)
         }
     } else {
-        notification("red", "error", "search form is empty!")
+        notification("red", "search form is empty!")
     }
 }
