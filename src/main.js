@@ -1,6 +1,6 @@
 const editJsonFile = require("edit-json-file");
 const { encrypt, decrypt } = require("../lib/crpyto")
-const { config } = require("../../config")
+const { config, config_file } = require("../../config")
 
 document.getElementById("remove-all").addEventListener("click", RemoveAll);
 document.getElementById("search").addEventListener("keyup", ({key}) => {
@@ -16,20 +16,21 @@ function Reload () {
     location.reload()
 }
 
-async function notification (color, title, message)
+async function notification (color, message)
 {
+    close_notification()
     let position = config_file.get("settings.notification_position") ==  undefined ? undefined :  config_file.get("settings.notification_position")
     element = `
         <div onclick="close_notification()" id="notification" class="${color} ${position}">
             <div id="notification-text" class="${color}">
-                <span class="${color}">${title}</span>
-                <div style="width: auto; height: 0.8px; background-color: #fff;"></div>
-                <span class="${color}">${message}</span>
+            <span class="${color}">${message}</span>
             </div>
 
         </div>
     `
-
+    const audio = new Audio("audio/notification.mp3");
+    audio.play();
+  
     document.body.innerHTML += element
 
     await sleep(2500)
@@ -186,7 +187,7 @@ function done (form, key)
     let save = true
 
     if (!username && !email) {
-        notification("red", "error", "username, email field is empty")
+        notification("red", "username, email field is empty")
         save = false
     }
 
